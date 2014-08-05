@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>Booking and Payment</title>
+<script type="text/JavaScript">
+  
+  function jsDisplayCardInfo(cardType) {
+  	if(cardType == 'PayPal') {
+  		document.getElementById('creditCardBox').style.display = 'none';
+  		document.getElementById('formPaymentType').value = 'PayPal';
+  	}
+  	else {
+  		document.getElementById('creditCardBox').style.display = '';
+  		document.getElementById('formPaymentType').value = 'CreditCard';
+  	}
+  }
+  </script>
+</head>
+<body>
+<form action="php/processPaymentOrder.php"method="post" name="frmPayment">
+  <h3>Personal Details</h3>
+  <strong>Name and surname: </strong>Alberto Lopez
+  <input type="hidden" id="formName" name="formName" value="Alberto Lopez"/><br>
+  <strong>Address: </strong>180 Central Park S
+  <input type="hidden" id="formAddress" name="formAddress" value="180 Central Park S"/><br>
+  <strong>City: </strong>New York
+  <input type="hidden" id="formCity" name="formCity" value="New York"/><br>
+  <strong>State: </strong>NY
+  <input type="hidden" id="formState" name="formState" value="NY"/><br>
+  <strong>Zip Code: </strong>10019
+  <input type="hidden" id="formZip" name="formZip" value="10019"/><br>
+  <strong>Country: </strong>USA
+  <input type="hidden" id="formCountry" name="formCountry" value="US"/><br>
+  <h3>Order Details</h3>
+  <strong>Product Name: </strong>Jamon iberico
+  <input type="hidden" id="formProductName" name="formProductName" value="Jamon iberico"/><br>
+  <strong>Quantity: </strong>1
+  <input type="hidden" id="formQuantity" name="formQuantity" value="1"/><br>
+  <strong>Price: </strong>500
+  <input type="hidden" id="formPrice" name="formPrice" value="500"/><br>
+  <strong>Currency: </strong>USD
+  <input type="hidden" id="formCurrency" name="formCurrency" value="USD"/><br>
+  <label for='lstCardType'>
+  <h3>Payment Type</h3>
+  </span>
+  </label>
+  <label>
+    <input type="radio" name="formGroupPayment" onchange="javascript:jsDisplayCardInfo(this.value)" value="visa" id="lstCardType">
+    <img src="img/visa.png" width="81" height="52" alt="visa"/></label>
+  <label>
+    <input type="radio" name="formGroupPayment" onchange="javascript:jsDisplayCardInfo(this.value)" value="mastercard">
+    <img src="img/mastercard.png" width="81" height="52" alt="mastercard"/></label>
+  <label>
+    <input type="radio" name="formGroupPayment" onchange="javascript:jsDisplayCardInfo(this.value)" value="amex" id="lstCardType">
+    <img src="img/american.png" width="81" height="52" alt="American Express"/></label>
+  <label>
+    <input type="radio" name="formGroupPayment" onchange="javascript:jsDisplayCardInfo(this.value)" value="PayPal" id="lstCardType">
+    <img src="img/paypal.png" width="81" height="52" alt="PayPal"/></label>  
+  <input type="hidden" id="formPaymentType" name="formPaymentType" value="PayPal"/>
+  <div style="display:none;" id="creditCardBox">
+    <label for='formCardNum'>Card Number </label>
+    <input type="text" size="40" name="formCardNum" id="formCardNum" /> <br>
+    <label for='formCardUserName'>Name on Card </label>
+    <input type="text" size="40" name="formCardUserName" id="formCardUserName"/> <br>
+    <label for='formExpMonth'>Expiry Date</label>
+    <select name="formExpMonth" id="formExpMonth">
+      <option value="01" >January</option>
+      <option value="02" >February</option>
+      <option value="03" >March</option>
+      <option value="04" >April</option>
+      <option value="05" >May</option>
+      <option value="06" >June</option>
+      <option value="07" >July</option>
+      <option value="08" >August</option>
+      <option value="09" >September</option>
+      <option value="10" >October</option>
+      <option value="11" >November</option>
+      <option value="12" >December</option>
+    </select>
+    <select name="formExpYear" id="formExpYear">
+      <option value="2015" >2015</option>
+      <option value="2016" >2016</option>
+      <option value="2017" >2017</option>
+      <option value="2018" >2018</option>
+      <option value="2019" >2019</option>
+      <option value="2020" >2020</option>
+      <option value="2021" >2021</option>
+      <option value="2022" >2022</option>
+    </select>
+    <label for='formSecurityCode'>Security Code(CVV)</label>
+    <input type="text" value="" name="formSecurityCode" id="formSecurityCode"/>
+  </div> <br>
+  <input type="submit" id="SubmitBtn" title="Confirm Payment" value="Confirm Payment"/>
+</form>
+</body>
+</html>
