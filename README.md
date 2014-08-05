@@ -19,7 +19,7 @@ This repository contains an example which uses PayPal's REST API.
 
 To test the example: 
 
-   * Run http://<your_server>/PayPalTest/ and enjoy it!
+   * Run http://your_server/PayPalTest/ and enjoy it!
 
 ## Contributing
 
